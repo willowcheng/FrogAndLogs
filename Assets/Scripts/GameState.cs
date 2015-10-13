@@ -38,6 +38,61 @@ public class GameState : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+
+		// If the game is not started and the player presses the space bar...
+		if (gameStarted == false && Input.GetKeyUp (KeyCode.Space)) {
+
+			// ...start the game
+			StartGame ();
+		}
+
+		// If the player is no longer alive...
+		if (playerHealth.alive == false) {
+
+			// ...end the game
+			EndGame ();
+
+			// ...increment a timer to count up to restarting...
+			restartTimer = restartTimer + Time.deltaTime;
+
+			// ...and if it reaches the restart delay...
+			if (restartTimer >= restartDelay) {
+
+				// ...then reload the currently loaded level
+				Application.LoadLevel (Application.loadedLevel);
+			}
+		}
 	}
+
+	private void StartGame () {
+
+		// Set the game state
+		gameStarted = true;
+
+		// Remove the start text
+		gameStateText.color = Color.clear;
+
+		// Allow the player to move
+		playerMovement.enabled = true;
+
+		// Allow the bird to move
+		birdMovement.enabled = true;
+
+		// Allow the camera to move
+		followCamera.enabled = true;
+	}
+
+	private void EndGame () {
+
+		// Set the game state
+		gameStarted = false;
+
+		// Show the game over text
+		gameStateText.color = Color.white;
+		gameStateText.text = "Game Over!";
+
+		// Remove the player from the game
+		player.SetActive (false);
+	}
+
 }
