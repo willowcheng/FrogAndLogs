@@ -76,14 +76,16 @@
 -define:UNITY_EDITOR_64
 -define:UNITY_EDITOR_OSX
 -define:CROSS_PLATFORM_INPUT
-'Assets/BirdMovement.cs'
+'Assets/Scripts/BirdMovement.cs'
 'Assets/Scripts/DontDestroy.cs'
 'Assets/Scripts/FlyMovement.cs'
 'Assets/Scripts/FlyPickup.cs'
 'Assets/Scripts/FlySpawner.cs'
 'Assets/Scripts/FollowCamera.cs'
 'Assets/Scripts/GameQuality.cs'
+'Assets/Scripts/GameState.cs'
 'Assets/Scripts/PickupParticlesDestruction.cs'
+'Assets/Scripts/PlayerHealth.cs'
 'Assets/Scripts/PlayerMovement.cs'
 'Assets/Scripts/ScoreCounter.cs'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Runtime.Serialization.dll'
